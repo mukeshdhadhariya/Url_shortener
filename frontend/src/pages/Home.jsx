@@ -9,7 +9,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleShorten = async () => {
     if (!longUrl.trim()) {
@@ -20,7 +20,10 @@ export default function App() {
     setError("");
     setLoading(true);
     try {
-      const res = await axios.post("https://url-shortener-2-60lp.onrender.com/shorten", { longUrl });
+      const res = await axios.post(
+        "https://url-shortener-2-60lp.onrender.com/shorten",
+        { longUrl }
+      );
       setShortUrl(res.data.shortUrl);
     } catch (err) {
       setError("Failed to shorten URL");
@@ -37,9 +40,13 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-lg p-6 max-w-lg w-full">
-        <h3 className="text-center">
-          ⏳ Take one minute to connect with Render backend so wait...
-        </h3>
+        
+        {loading && (
+          <h3 className="text-center text-gray-600 mb-4 animate-pulse">
+            ⏳ Take one minute to connect with Render backend so wait...
+          </h3>
+        )}
+
         <h1 className="text-3xl font-bold text-center text-blue-500 mb-6">
           URL Shortener
         </h1>
@@ -90,7 +97,7 @@ export default function App() {
         <div className="text-center mt-4">
           <button
             className="text-black p-3 mt-3 bg-gray-300 rounded hover:bg-gray-400"
-            onClick={() => navigate('/admin')}
+            onClick={() => navigate("/admin")}
           >
             Admin Page
           </button>
