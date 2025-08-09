@@ -6,7 +6,7 @@ export default function Admin() {
   const navigate=useNavigate()
 
   useEffect(() => {
-    fetch("http://localhost:5000/")
+    fetch("https://url-shortener-2-60lp.onrender.com/")
       .then((res) => res.json())
       .then((data) => setUrls(data))
       .catch((err) => console.error(err));
@@ -40,12 +40,12 @@ export default function Admin() {
               >
                 <td className="p-4 text-center">
                   <a
-                    href={`http://localhost:5000/${url.shortId}`}
+                    href={`https://url-shortener-2-60lp.onrender.com${url.shortId}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 font-medium hover:underline"
                   >
-                    {`http://localhost:5000/${url.shortId}`}
+                    {`https://url-shortener-2-60lp.onrender.com${url.shortId}`}
                   </a>
                 </td>
                 <td className="p-4 text-center font-semibold text-gray-800">

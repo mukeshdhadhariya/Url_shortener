@@ -20,7 +20,7 @@ export default function App() {
     setError("");
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/shorten", { longUrl });
+      const res = await axios.post("https://url-shortener-2-60lp.onrender.com/shorten", { longUrl });
       setShortUrl(res.data.shortUrl);
     } catch (err) {
       setError("Failed to shorten URL");
